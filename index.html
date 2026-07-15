@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRICE LIST｜VEITCHII HAIR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sage:#6f7d5a;
+    --sage-dark:#5c6a49;
+    --ink:#2b2b24;
+    --sub:#5f6152;
+    --line:#d3d8c8;
+    --bg:#fdfdfb;
+    --green-bg:#eef1e5;
+    --futura:"Futura","Futura PT","Century Gothic","Jost",sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Zen Kaku Gothic New",sans-serif;
+    font-weight:500;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .inner{max-width:820px;margin:0 auto;padding:0 28px;}
+  @media(max-width:520px){ .inner{padding:0 22px;} }
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    text-align:center;
+    padding:66px 24px 30px;
+  }
+  header.hero .en{
+    font-family:var(--futura);
+    font-weight:600;
+    font-size:clamp(2.8rem,10vw,5.2rem);
+    letter-spacing:.04em;
+    color:var(--sage);
+    line-height:1;
+  }
+  header.hero .brand{
+    margin-top:22px;
+  }
+  header.hero .brand svg{
+    width:clamp(200px,44vw,270px);
+    height:auto;
+    display:inline-block;
+  }
+  header.hero .tax{
+    font-size:.78rem;
+    font-weight:500;
+    color:var(--sub);
+    margin-top:14px;
+    letter-spacing:.02em;
+  }
+
+  /* ---------- Category band ---------- */
+  .band{width:100%;}
+  .band.alt{background:var(--green-bg);}
+  .band .inner{padding-top:44px;padding-bottom:44px;}
+
+  .cat-head{
+    text-align:left;
+    margin-bottom:14px;
+  }
+  .cat-head .jp{
+    font-size:.82rem;
+    font-weight:500;
+    color:var(--sub);
+    letter-spacing:.06em;
+  }
+  .cat-head h2{
+    font-family:var(--futura);
+    font-weight:600;
+    font-size:clamp(2.2rem,7vw,2.7rem);
+    letter-spacing:.05em;
+    color:var(--sage);
+    line-height:1.1;
+    margin-top:2px;
+  }
+  .cat-head .sub{
+    font-size:.82rem;
+    font-weight:500;
+    color:var(--sub);
+    letter-spacing:.02em;
+    margin-top:4px;
+  }
+
+  /* ---------- Menu rows ---------- */
+  ul.menu{list-style:none;}
+  ul.menu li{
+    padding:24px 2px;
+    border-bottom:1px solid var(--line);
+  }
+  ul.menu li:first-child{border-top:1px solid var(--line);}
+  .row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:6px 20px;
+    flex-wrap:wrap;
+  }
+  .row .name{
+    position:relative;
+    padding-left:22px;
+    font-weight:400;
+    font-size:clamp(1.2rem,4.6vw,1.4rem);
+    line-height:1.4;
+  }
+  .row .name::before{
+    content:"";
+    position:absolute;left:0;top:.5em;
+    width:9px;height:9px;
+    background:var(--sage);
+  }
+  .row .name small{
+    display:inline;
+    font-weight:500;
+    font-size:clamp(.72rem,2.2vw,.82rem);
+    color:var(--sub);
+    letter-spacing:.01em;
+  }
+  .row .price{
+    margin-left:auto;
+    text-align:right;
+    font-weight:400;
+    font-size:clamp(1rem,3.4vw,1.15rem);
+    white-space:nowrap;
+    color:var(--ink);
+  }
+  /* size-based pricing (S/M/L) */
+  .sizes{
+    margin-left:auto;
+    display:flex;
+    justify-content:flex-end;
+    gap:16px;
+    flex-wrap:wrap;
+    font-weight:400;
+    font-size:clamp(.98rem,3.2vw,1.12rem);
+    white-space:nowrap;
+    color:var(--ink);
+  }
+  .sizes span b{font-weight:700;color:var(--sage-dark);margin-right:3px;}
+
+  /* color type tags */
+  .tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 26px;
+    margin:2px 0 4px;
+  }
+  .tags span{
+    position:relative;
+    padding-left:18px;
+    font-weight:700;
+    font-size:clamp(1rem,3.4vw,1.15rem);
+  }
+  .tags span::before{
+    content:"";
+    position:absolute;left:0;top:.55em;
+    width:9px;height:9px;
+    background:var(--sage);
+  }
+  .note{
+    font-size:clamp(.8rem,2.4vw,.9rem);
+    font-weight:500;
+    color:var(--sub);
+    margin-top:12px;
+    letter-spacing:.01em;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--sage);
+    color:#fff;
+    padding:44px 28px 40px;
+  }
+  .foot-inner{
+    max-width:820px;margin:0 auto;
+    display:flex;flex-wrap:wrap;align-items:center;
+    justify-content:space-between;gap:28px;
+  }
+  footer .fbrand svg{
+    width:190px;
+    height:auto;
+    display:block;
+  }
+  footer .msg{font-size:.97rem;line-height:1.9;margin-top:10px;font-weight:500;}
+
+  .foot-info{
+    max-width:820px;margin:34px auto 0;
+    border-top:1px solid rgba(255,255,255,.28);
+    padding-top:26px;
+  }
+  .info-row{
+    display:flex;align-items:center;gap:14px;
+    margin-bottom:12px;
+    font-size:clamp(1rem,3.4vw,1.15rem);
+    font-weight:500;letter-spacing:.02em;
+  }
+  .info-row .label{
+    flex-shrink:0;
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:104px;
+    padding:5px 12px;
+    border:1.5px solid rgba(255,255,255,.7);
+    border-radius:8px;
+    font-size:.9rem;font-weight:600;letter-spacing:.24em;
+  }
+  .info-row .label span{letter-spacing:0;}
+  .foot-addr{
+    margin-top:22px;
+    font-size:clamp(.95rem,3vw,1.1rem);
+    font-weight:500;letter-spacing:.01em;
+  }
+  .foot-tel{display:inline-block;margin-top:6px;}
+  .foot-tel a{
+    color:#fff;text-decoration:none;
+    font-family:var(--futura);font-weight:600;
+    font-size:clamp(1.7rem,7vw,2.3rem);
+    letter-spacing:.03em;
+  }
+  .foot-tel a .lbl{font-size:.62em;letter-spacing:.06em;margin-right:.15em;}
+  .socials{display:flex;gap:14px;flex-wrap:wrap;}
+  .socials a{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.5);
+    color:#fff;text-decoration:none;
+    padding:10px 20px;border-radius:40px;
+    font-size:.9rem;font-weight:600;letter-spacing:.02em;
+    transition:background .2s;
+  }
+  .socials a:hover{background:rgba(255,255,255,.28);}
+  .copy{
+    text-align:center;color:#6f7060;
+    font-family:var(--futura);font-weight:500;font-size:.74rem;
+    letter-spacing:.08em;padding:22px 0;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="en">PRICE LIST</div>
+  <div class="brand" aria-label="VEITCHII HAIR">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219.6 31.5" fill="#2b2b24">
+      <path d="M4.6,1.6l7.8,19.5L20.2,1.6h4.6l-12.4,29.8L0,1.6h4.6Z"/>
+      <path d="M41.6,5.7h-11.2v7.1h10.8v4h-10.8v8.8h11.2v4h-15.5V1.6h15.5v4Z"/>
+      <path d="M49,1.6v28h-4.3V1.6h4.3Z"/>
+      <path d="M61.1,5.7v24h-4.3V5.7h-6.4V1.6h17.1v4h-6.4Z"/>
+      <path d="M88.7,8.2c-3.1-2.8-6-3.1-7.6-3.1-6.1,0-10.2,4.5-10.2,10.7s4.3,10.5,10.2,10.5,6-1.7,7.6-3.2v5.1c-2.8,1.7-5.8,2.1-7.7,2.1-5.1,0-8.3-2.3-9.9-3.9-3.3-3.1-4.5-6.6-4.5-10.6s2.1-8.7,4.5-11c2.9-2.7,6.3-3.7,10.1-3.7s5,.5,7.5,2v5h0Z"/>
+      <path d="M96.3,12.7h12V1.6h4.3v28h-4.3v-12.9h-12v12.9h-4.3V1.6h4.3v11.1Z"/>
+      <path d="M121.5,1.6v28h-4.3V1.6h4.3Z"/>
+      <path d="M130.3,1.6v28h-4.3V1.6h4.3Z"/>
+      <path d="M147.7,12.7h12V1.6h4.3v28h-4.3v-12.9h-12v12.9h-4.3V1.6h4.3v11.1Z"/>
+      <path d="M184.9,22.9h-12l-3.1,6.8h-4.6L179.2,0l13.3,29.6h-4.6l-2.9-6.8h0ZM183.2,18.8l-4.2-9.5-4.3,9.5h8.5Z"/>
+      <path d="M198.1,1.6v28h-4.3V1.6h4.3Z"/>
+      <path d="M206.3,1.6c3.4,0,5.6.4,7.4,1.6,3.1,2.1,3.3,5.4,3.3,6.6,0,4-2.5,7-6.2,7.8l8.7,12h-5.2l-8-11.5h-.8v11.5h-4.3V1.6h5,0ZM205.6,14.5h1.3c1.2,0,6-.1,6-4.6s-3.7-4.3-5.8-4.3h-1.5v8.9h0Z"/>
+    </svg>
+  </div>
+  <div class="tax">※価格は全て税込表示</div>
+</header>
+
+<!-- CUT -->
+<section class="band">
+  <div class="inner">
+    <div class="cat-head">
+      <div class="jp">カット</div>
+      <h2>CUT</h2>
+      <div class="sub">（プレシャン込み）</div>
+    </div>
+    <ul class="menu">
+      <li><div class="row"><span class="name">一般</span><span class="price">¥4,400</span></div></li>
+      <li><div class="row"><span class="name">高校生</span><span class="price">¥3,300</span></div></li>
+      <li><div class="row"><span class="name">中学生以下</span><span class="price">¥2,750</span></div></li>
+      <li><div class="row"><span class="name">フロントカット <small>（プレシャンなし）</small></span><span class="price">¥1,100</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- COLOR -->
+<section class="band alt">
+  <div class="inner">
+    <div class="cat-head">
+      <div class="jp">カラー</div>
+      <h2>COLOR</h2>
+      <div class="sub">（シャンプーブロー込み）</div>
+    </div>
+    <div class="tags">
+      <span>アルカリカラー</span>
+      <span>トリートメントカラー</span>
+      <span>漢方カラー</span>
+      <span>ヘナカラー</span>
+      <span>マニキュアカラー</span>
+    </div>
+    <ul class="menu">
+      <li><div class="row">
+        <span class="sizes"><span><b>S</b>¥6,600</span><span><b>M</b>¥7,150</span><span><b>L</b>¥7,700</span></span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PERM -->
+<section class="band">
+  <div class="inner">
+    <div class="cat-head">
+      <div class="jp">パーマ</div>
+      <h2>PERM</h2>
+    </div>
+    <ul class="menu">
+      <li><div class="row"><span class="name">デザインパーマ <small>（カットプレシャン込み）</small></span>
+        <span class="sizes"><span><b>S</b>¥9,900</span><span><b>M</b>¥10,450</span><span><b>L</b>¥11,000</span></span></div></li>
+      <li><div class="row"><span class="name">ポイントパーマ</span><span class="price">¥2,200～</span></div></li>
+      <li><div class="row"><span class="name">ストレート <small>（カットプレシャン込み）</small></span>
+        <span class="sizes"><span><b>S</b>¥17,600</span><span><b>M</b>¥18,150</span><span><b>L</b>¥18,700</span></span></div></li>
+      <li><div class="row"><span class="name">ポイントストレート</span><span class="price">¥4,400～</span></div></li>
+      <li><div class="row"><span class="name">ボリュームダウンストレート</span>
+        <span class="sizes"><span><b>S</b>¥6,600</span><span><b>M</b>¥7,150</span><span><b>L</b>¥7,700</span></span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SET -->
+<section class="band alt">
+  <div class="inner">
+    <div class="cat-head">
+      <div class="jp">セット</div>
+      <h2>SET</h2>
+    </div>
+    <ul class="menu">
+      <li><div class="row"><span class="name">ブロー</span><span class="price">¥2,200</span></div></li>
+      <li><div class="row"><span class="name">アップセット</span><span class="price">¥4,400</span></div></li>
+      <li><div class="row"><span class="name">ダウンセット</span><span class="price">¥3,300</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- OTHER -->
+<section class="band">
+  <div class="inner">
+    <div class="cat-head">
+      <div class="jp">その他</div>
+      <h2>OTHER</h2>
+    </div>
+    <ul class="menu">
+      <li><div class="row"><span class="name">シャンプー</span>
+        <span class="sizes"><span><b>S</b>¥1,100</span><span><b>M</b>¥1,210</span><span><b>L</b>¥1,320</span></span></div></li>
+      <li><div class="row"><span class="name">リアイニングケア</span>
+        <span class="sizes"><span><b>S</b>¥2,750</span><span><b>M</b>¥3,300</span><span><b>L</b>¥3,850</span></span></div></li>
+      <li><div class="row"><span class="name">ボタニカルトリートメント</span>
+        <span class="sizes"><span><b>S</b>¥2,200</span><span><b>M</b>¥2,750</span><span><b>L</b>¥3,300</span></span></div></li>
+      <li><div class="row"><span class="name">3STEPトリートメント</span>
+        <span class="sizes"><span><b>S</b>¥1,650</span><span><b>M</b>¥2,200</span><span><b>L</b>¥2,750</span></span></div></li>
+      <li><div class="row"><span class="name">デトックススパ</span><span class="price">¥1,100</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="fbrand" aria-label="VEITCHII HAIR">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219.56 31.45" fill="#fff">
+          <path d="M4.62,1.64l7.81,19.52L20.24,1.64h4.62l-12.43,29.81L0,1.64h4.62Z"/>
+          <path d="M41.63,5.67h-11.17v7.1h10.83v4.03h-10.83v8.82h11.17v4.03h-15.45V1.64h15.45v4.03Z"/>
+          <path d="M49.02,1.64v28h-4.28V1.64h4.28Z"/>
+          <path d="M61.09,5.67v23.97h-4.28V5.67h-6.42V1.64h17.13v4.03h-6.42Z"/>
+          <path d="M88.66,8.19c-3.11-2.81-6-3.11-7.6-3.11-6.09,0-10.2,4.49-10.2,10.66s4.28,10.5,10.24,10.5c3.36,0,5.96-1.72,7.56-3.23v5.08c-2.81,1.68-5.75,2.1-7.68,2.1-5.08,0-8.27-2.31-9.91-3.86-3.27-3.06-4.49-6.63-4.49-10.58,0-5.16,2.14-8.73,4.49-10.96,2.9-2.73,6.26-3.65,10.12-3.65,2.56,0,5.04.46,7.47,2.02v5.04Z"/>
+          <path d="M96.35,12.72h12.01V1.64h4.28v28h-4.28v-12.89h-12.01v12.89h-4.28V1.64h4.28v11.08Z"/>
+          <path d="M121.49,1.64v28h-4.28V1.64h4.28Z"/>
+          <path d="M130.26,1.64v28h-4.28V1.64h4.28Z"/>
+          <path d="M147.69,12.72h12.01V1.64h4.28v28h-4.28v-12.89h-12.01v12.89h-4.28V1.64h4.28v11.08Z"/>
+          <path d="M184.95,22.88h-11.97l-3.06,6.76h-4.62L179.24,0l13.27,29.64h-4.62l-2.94-6.76ZM183.23,18.85l-4.16-9.49-4.32,9.49h8.48Z"/>
+          <path d="M198.11,1.64v28h-4.28V1.64h4.28Z"/>
+          <path d="M206.34,1.64c3.4,0,5.58.42,7.39,1.64,3.07,2.06,3.32,5.37,3.32,6.59,0,4.03-2.48,6.97-6.21,7.81l8.73,11.97h-5.16l-8.02-11.46h-.76v11.46h-4.28V1.64h5ZM205.63,14.48h1.34c1.18,0,5.96-.13,5.96-4.58,0-3.95-3.74-4.32-5.84-4.32h-1.47v8.9Z"/>
+        </svg>
+      </div>
+      <div class="msg">ご不明な点ございましたら、お気軽にお尋ねください。</div>
+    </div>
+    <div class="socials">
+      <a href="https://line.me/R/ti/p/@250ylcpj?oat_content=qr" target="_blank" rel="noopener">LINEで予約・相談</a>
+      <a href="https://www.instagram.com/veitchii_hair" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <div class="foot-info">
+    <div class="info-row">
+      <span class="label">営業時間</span>
+      <span>9:00 〜 18:00</span>
+    </div>
+    <div class="info-row">
+      <span class="label"><span>定休日</span></span>
+      <span>火曜 / 第1・第3月曜</span>
+    </div>
+    <div class="foot-addr">〒838-0144 小郡市祇園1-10-20</div>
+    <div class="foot-tel"><a href="tel:0942720217"><span class="lbl">TEL：</span>0942-72-0217</a></div>
+  </div>
+</footer>
+
+<div class="copy">© VEITCHII HAIR</div>
+
+</body>
+</html>
